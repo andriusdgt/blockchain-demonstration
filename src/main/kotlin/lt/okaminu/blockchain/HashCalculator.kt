@@ -1,8 +1,12 @@
 package lt.okaminu.blockchain
 
-fun calculateHash(block: Block): Pair<String, Int> {
-    block.nounce++
-    val str = "${block.data}${block.previousHash}${block.timestamp}${block.nounce}"
+import java.security.MessageDigest
 
-    return Pair(str, block.nounce)
+fun calculateHash(block: Block): Pair<String, Int> {
+    val hasher = MessageDigest.getInstance("SHA-256")
+    block.nounce++
+    val blockAsString = "${block.data}${block.previousHash}${block.timestamp}${block.nounce}"
+    val digest = hasher.digest(blockAsString.toByteArray())
+
+    return Pair(digest.fold("", {str, byte -> str + "%02x".format(byte)}), block.nounce)
 }
