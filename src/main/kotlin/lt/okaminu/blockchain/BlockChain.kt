@@ -23,12 +23,12 @@ class BlockChain {
                         "previousHash=${it.previousHash}")
             }
 
-    fun validateBlocks(){
-        for (block in blocks){
-            if(isHashValid(block.hash) && block.hash == getStringDigest(block))
-                println("block ${block.hash} is valid")
-            else
+    fun validateBlocks() {
+        for (block in blocks) {
+            if (!isHashValid(block.hash))
                 println("block ${block.hash} is invalid")
+            if (block.hash != getStringDigest(block))
+                println("block ${block.hash} is corrupted")
         }
     }
 

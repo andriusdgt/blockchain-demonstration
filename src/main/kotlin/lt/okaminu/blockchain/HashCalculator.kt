@@ -19,6 +19,6 @@ fun getStringDigest(block: Block): String {
     return digest.fold("", { str, byte -> str + "%02x".format(byte) })
 }
 
-val difficulty = 4
+val difficulty = 3
 
 fun isHashValid(hash: String) = hash.startsWith("0".repeat(difficulty))
