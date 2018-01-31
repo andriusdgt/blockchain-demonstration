@@ -6,6 +6,5 @@ fun main(args: Array<String>) {
         addBlock("block2")
         addBlock("block3")
     }
-    blockChain.calculateHashes()
     blockChain.printAllBlocks()
 }
