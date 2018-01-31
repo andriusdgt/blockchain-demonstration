@@ -4,6 +4,8 @@ class BlockChain(private val blocks: ArrayList<Block> = arrayListOf(Block("genes
 
     fun addBlock(data: String) = blocks.add(Block(data))
 
+    fun calculateHashes() = blocks.forEach{ HashCalculator(it).calculate()}
+
     fun printAllBlocks() =
             blocks.forEach { println("time=${it.timestamp} data=${it.data} nounce=${it.nounce} hash=${it.hash}") }
 
