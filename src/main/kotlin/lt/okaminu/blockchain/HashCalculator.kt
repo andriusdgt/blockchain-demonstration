@@ -13,10 +13,12 @@ fun calculateHash(block: Block): Pair<String, Int> {
     return Pair(digestInString, block.nounce)
 }
 
-private fun getStringDigest(block: Block): String {
+fun getStringDigest(block: Block): String {
     val blockAsString = "${block.data}${block.previousHash}${block.timestamp}${block.nounce}"
     val digest = MessageDigest.getInstance("SHA-256").digest(blockAsString.toByteArray())
     return digest.fold("", { str, byte -> str + "%02x".format(byte) })
 }
 
-fun isHashValid(hash: String) = hash.startsWith("0000")
+val difficulty = 4
+
+fun isHashValid(hash: String) = hash.startsWith("0".repeat(difficulty))
