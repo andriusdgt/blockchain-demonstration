@@ -1,13 +1,20 @@
 package lt.okaminu.blockchain
 
-class BlockChain(private val blocks: ArrayList<Block> = arrayListOf(Block("genesis block", "123"))) {
+class BlockChain{
+
+    private val blocks: ArrayList<Block> = arrayListOf(createBlock("genesis block", "123"))
 
     fun addBlock(data: String){
-        val block = Block(data, blocks.last().previousHash)
+        blocks.add(createBlock(data, blocks.last().hash))
+    }
+
+    fun createBlock(data: String, previousHash: String): Block {
+        val block = Block(data, previousHash)
         val (hash, nounce) = calculateHash(block)
         block.hash = hash
+        block.previousHash = previousHash
         block.nounce = nounce
-        blocks.add(block)
+        return block
     }
 
     fun printAllBlocks() =
