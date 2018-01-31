@@ -11,6 +11,7 @@ class BlockChain(private val blocks: ArrayList<Block> = arrayListOf(Block("genes
     }
 
     fun printAllBlocks() =
-            blocks.forEach { println("time=${it.timestamp} data=${it.data} nounce=${it.nounce} hash=${it.hash}") }
+            blocks.forEach { println("time=${it.timestamp} data=${it.data} nounce=${it.nounce} hash=${it.hash} " +
+                    "previousHash=${it.previousHash}") }
 
 }
