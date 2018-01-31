@@ -1,10 +1,10 @@
 package lt.okaminu.blockchain
 
-class BlockChain{
+class BlockChain {
 
     private val blocks: ArrayList<Block> = arrayListOf(createBlock("genesis block", "123"))
 
-    fun addBlock(data: String){
+    fun addBlock(data: String) {
         blocks.add(createBlock(data, blocks.last().hash))
     }
 
@@ -18,7 +18,9 @@ class BlockChain{
     }
 
     fun printAllBlocks() =
-            blocks.forEach { println("time=${it.timestamp} data=${it.data} nounce=${it.nounce} hash=${it.hash} " +
-                    "previousHash=${it.previousHash}") }
+            blocks.forEach {
+                println("time=${it.timestamp} data=${it.data} nounce=${it.nounce} hash=${it.hash} " +
+                        "previousHash=${it.previousHash}")
+            }
 
 }
