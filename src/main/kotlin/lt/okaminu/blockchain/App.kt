@@ -1,5 +1,8 @@
 package lt.okaminu.blockchain
 
 fun main(args: Array<String>) {
-    print("Hello world")
+    val blockChain = BlockChain()
+    blockChain.addBlock("block1")
+    blockChain.addBlock("block2")
+    blockChain.addBlock("block3")
 }
