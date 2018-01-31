@@ -2,7 +2,7 @@ package lt.okaminu.blockchain
 
 class BlockChain {
 
-    private val blocks: ArrayList<Block> = arrayListOf(createBlock("genesis block", "123"))
+    val blocks: ArrayList<Block> = arrayListOf(createBlock("genesis block", "123"))
 
     fun addBlock(data: String) {
         blocks.add(createBlock(data, blocks.last().hash))
@@ -22,5 +22,14 @@ class BlockChain {
                 println("time=${it.timestamp} data=${it.data} nounce=${it.nounce} hash=${it.hash} " +
                         "previousHash=${it.previousHash}")
             }
+
+    fun validateBlocks(){
+        for (block in blocks){
+            if(isHashValid(block.hash) && block.hash == getStringDigest(block))
+                println("block ${block.hash} is valid")
+            else
+                println("block ${block.hash} is invalid")
+        }
+    }
 
 }
