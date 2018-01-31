@@ -1,3 +1,6 @@
 package lt.okaminu.blockchain
 
-data class Block (val timestamp: Long, val data: String)
+import java.time.Instant
+
+data class Block (val data: String, val timestamp: Long = Instant.now().epochSecond,
+                  val hash: String = "", val previousHash: String = "", val nounce: Int = 0)
