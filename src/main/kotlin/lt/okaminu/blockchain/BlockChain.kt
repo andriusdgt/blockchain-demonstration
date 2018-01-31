@@ -1,6 +1,6 @@
 package lt.okaminu.blockchain
 
-class BlockChain (private val blocks: ArrayList<String> = arrayListOf()){
-    fun addBlock(block: String) = blocks.add(block)
-    fun printAllBlocks() = blocks.forEach{println(it)}
+class BlockChain (private val blocks: ArrayList<Block> = arrayListOf()){
+    fun addBlock(data: String) = blocks.add(Block(data))
+    fun printAllBlocks() = blocks.forEach{println(it.data)}
 }
