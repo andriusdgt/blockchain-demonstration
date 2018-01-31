@@ -2,9 +2,15 @@ package lt.okaminu.blockchain
 
 class BlockChain(private val blocks: ArrayList<Block> = arrayListOf(Block("genesis block"))) {
 
-    fun addBlock(data: String) = blocks.add(Block(data))
+    fun addBlock(data: String){
+        val block = Block(data)
+        val (hash, nounce) = calculateHash(block)
+        block.hash = hash
+        block.nounce = nounce
+        blocks.add(block)
 
-    fun calculateHashes() = blocks.forEach{ HashCalculator(it).calculate()}
+    }
+
 
     fun printAllBlocks() =
             blocks.forEach { println("time=${it.timestamp} data=${it.data} nounce=${it.nounce} hash=${it.hash}") }
