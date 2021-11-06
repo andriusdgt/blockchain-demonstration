@@ -1,4 +1,4 @@
-package lt.okaminu.blockchain
+package lt.anddeg.blockchain
 
 import java.security.MessageDigest
 

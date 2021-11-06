@@ -17,8 +17,8 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
 }
 
-mainClassName = 'lt.okaminu.blockchain.AppKt'
-group 'lt.okaminu.blockchain'
+mainClassName = 'lt.anddeg.blockchain.AppKt'
+group 'lt.anddeg.blockchain'
 version '1.0-SNAPSHOT'
 
 defaultTasks 'run'
