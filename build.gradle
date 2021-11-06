@@ -19,7 +19,7 @@ dependencies {
 
 mainClassName = 'lt.anddeg.blockchain.AppKt'
 group 'lt.anddeg.blockchain'
-version '1.0-SNAPSHOT'
+version '2.0'
 
 defaultTasks 'run'
 
