@@ -8,18 +8,9 @@ class BlockChain {
         blocks.add(createBlock(data, blocks.last().hash))
     }
 
-    fun createBlock(data: String, previousHash: String): Block {
-        val block = Block(data, previousHash)
-        val (hash, nounce) = calculateHash(block)
-        block.hash = hash
-        block.previousHash = previousHash
-        block.nounce = nounce
-        return block
-    }
-
     fun printAllBlocks() =
             blocks.forEach {
-                println("time=${it.timestamp} data=${it.data} nounce=${it.nounce} hash=${it.hash} " +
+                println("time=${it.timestamp} data=${it.data} nonce=${it.nonce} hash=${it.hash} " +
                         "previousHash=${it.previousHash}")
             }
 
@@ -30,6 +21,15 @@ class BlockChain {
             if (block.hash != getStringDigest(block))
                 println("block ${block.hash} is corrupted")
         }
+    }
+
+    private fun createBlock(data: String, previousHash: String): Block {
+        val block = Block(data, previousHash)
+        val (hash, nonce) = calculateHash(block)
+        block.hash = hash
+        block.previousHash = previousHash
+        block.nonce = nonce
+        return block
     }
 
 }
