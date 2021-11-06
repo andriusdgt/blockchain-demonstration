@@ -1,6 +1,6 @@
 package lt.anddeg.blockchain
 
-fun main(args: Array<String>) {
+fun main() {
     val blockChain = BlockChain().apply {
         addBlock("block1")
         addBlock("block2")
