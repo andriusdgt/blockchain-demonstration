@@ -5,7 +5,7 @@ Once constructed they are validated for integrity purposes, by example we tamper
 
 ## Prerequisites
 
-Java 11 installed
+JDK 11 installed
 
 ## How to run
 
